@@ -4,6 +4,13 @@
     box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
 }
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
 .button {
   background-color: #7a8288;
   color: #fff;
@@ -12,18 +19,14 @@
 .button:hover {
   background-color: #52adc8;
 }
-
-body {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
 .container {
-    max-width: 1300px;
+    max-width: 1200px;
+    margin: 0 auto;
     width: 100%;
     padding: 20px;
+}
+section{
+    margin-bottom: 40px;
 }
 
 #header,
