@@ -88,8 +88,9 @@
 
         .nav-links {
             display: flex;
-            gap: 2.5rem;
+            gap: 2rem;
             list-style: none;
+            flex-wrap: wrap;
         }
 
         .nav-links a {
@@ -163,6 +164,7 @@
             gap: 1.5rem;
             justify-content: center;
             margin-top: 2rem;
+            flex-wrap: wrap;
         }
 
         .btn {
@@ -274,12 +276,59 @@
             border-radius: 2px;
         }
 
-        /* About Section */
+        /* About Section with Profile Image */
         .about-container {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 400px 1fr;
             gap: 4rem;
             align-items: center;
+            margin-bottom: 3rem;
+        }
+
+        .about-image-container {
+            position: relative;
+            max-width: 400px;
+        }
+
+        .profile-image {
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 212, 255, 0.3);
+            transition: all 0.4s ease;
+            position: relative;
+            z-index: 2;
+            object-fit: cover;
+        }
+
+        .profile-image:hover {
+            transform: scale(1.05);
+            box-shadow: 0 25px 80px rgba(0, 212, 255, 0.5);
+        }
+
+        .image-border {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            right: -20px;
+            bottom: -20px;
+            border: 3px solid var(--accent-blue);
+            border-radius: 20px;
+            z-index: 1;
+            transition: all 0.4s ease;
+        }
+
+        .about-image-container:hover .image-border {
+            top: 10px;
+            left: 10px;
+            right: -10px;
+            bottom: -10px;
+            border-color: var(--accent-purple);
+        }
+
+        .about-content {
+            display: flex;
+            flex-direction: column;
         }
 
         .about-text {
@@ -496,6 +545,159 @@
             font-size: 1.2rem;
         }
 
+        /* Featured Section */
+        .featured-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .featured-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(0, 212, 255, 0.1);
+            transition: all 0.4s ease;
+        }
+
+        .featured-card:hover {
+            border-color: var(--accent-blue);
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.3);
+        }
+
+        .featured-badge {
+            background: var(--gradient-1);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            display: inline-block;
+            margin: 2rem 2rem 0;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .featured-content {
+            padding: 1.5rem 2rem 2rem;
+        }
+
+        .featured-title {
+            font-size: 1.8rem;
+            color: var(--accent-blue);
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+
+        .featured-source {
+            color: var(--accent-purple);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .featured-description {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .featured-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--accent-blue);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .featured-link:hover {
+            color: var(--accent-purple);
+            gap: 1rem;
+        }
+
+        /* Photo Gallery Section */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            cursor: pointer;
+            height: 350px;
+            border: 1px solid rgba(0, 212, 255, 0.1);
+            transition: all 0.4s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+            border-color: var(--accent-blue);
+            box-shadow: 0 15px 40px rgba(0, 212, 255, 0.4);
+        }
+
+        .gallery-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.4s ease;
+        }
+
+        .gallery-item:hover .gallery-image {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+            padding: 2rem;
+            transform: translateY(100%);
+            transition: all 0.4s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+
+        .gallery-caption {
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .gallery-description {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .gallery-placeholder {
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .gallery-placeholder i {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            opacity: 0.5;
+        }
+
+        .gallery-placeholder p {
+            font-size: 1.1rem;
+            opacity: 0.7;
+        }
+
         /* Certifications */
         .cert-grid {
             display: grid;
@@ -630,8 +832,7 @@
         @media (max-width: 768px) {
             .nav-links {
                 gap: 1rem;
-                flex-wrap: wrap;
-                justify-content: center;
+                font-size: 0.9rem;
             }
 
             .hero-title {
@@ -646,12 +847,25 @@
                 grid-template-columns: 1fr;
             }
 
+            .about-image-container {
+                max-width: 300px;
+                margin: 0 auto 2rem;
+            }
+
             .section-title {
                 font-size: 2rem;
             }
 
             section {
                 padding: 60px 5%;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-item {
+                height: 300px;
             }
         }
     </style>
@@ -670,6 +884,8 @@
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#experience">Experience</a></li>
                 <li><a href="projects.html">Projects</a></li>
+                <li><a href="#featured">Featured</a></li>
+                <li><a href="#gallery">Gallery</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
@@ -700,51 +916,58 @@
     <section id="about">
         <h2 class="section-title" data-aos="fade-up">About Me</h2>
         <div class="about-container">
-            <div class="about-text" data-aos="fade-right">
-                <p>
-                    I'm an AI/ML Engineer with expertise in building scalable AI solutions, RAG systems, and conversational AI agents. 
-                    Currently at HomeServe USA, I architect end-to-end AI analytics platforms that process thousands of interactions 
-                    and deliver actionable insights.
-                </p>
-                <p>
-                    With a Master's in Computer Engineering from Drexel University (Magna Cum Laude) and experience at companies like 
-                    Zoetis and Tata Consultancy Services, I specialize in NLP, computer vision, and deploying production-ready AI systems 
-                    on AWS, Azure, and GCP.
-                </p>
-                <p>
-                    I'm passionate about transforming complex problems into elegant AI solutions that drive real business impact.
-                </p>
-                <div class="hobbies">
-                    <h3>When I'm Not Coding</h3>
-                    <div class="hobby-items">
-                        <div class="hobby-item">
-                            <i class="fas fa-futbol"></i>
-                            <span>Playing Football</span>
-                        </div>
-                        <div class="hobby-item">
-                            <i class="fas fa-table-tennis"></i>
-                            <span>Badminton</span>
+            <div class="about-image-container" data-aos="fade-right">
+                <img src="profile.jpg" alt="Vigneswar Sundaramurthy" class="profile-image">
+                <div class="image-border"></div>
+            </div>
+            <div class="about-content" data-aos="fade-left">
+                <div class="about-text">
+                    <p>
+                        I'm an AI/ML Engineer with expertise in building scalable AI solutions, RAG systems, and conversational AI agents. 
+                        Currently at HomeServe USA, I architect end-to-end AI analytics platforms that process thousands of interactions 
+                        and deliver actionable insights.
+                    </p>
+                    <p>
+                        With a Master's in Computer Engineering from Drexel University (Magna Cum Laude) and experience at companies like 
+                        Zoetis and Tata Consultancy Services, I specialize in NLP, computer vision, and deploying production-ready AI systems 
+                        on AWS, Azure, and GCP.
+                    </p>
+                    <p>
+                        I'm passionate about transforming complex problems into elegant AI solutions that drive real business impact.
+                    </p>
+                    <div class="hobbies">
+                        <h3>When I'm Not Coding</h3>
+                        <div class="hobby-items">
+                            <div class="hobby-item">
+                                <i class="fas fa-futbol"></i>
+                                <span>Playing Football</span>
+                            </div>
+                            <div class="hobby-item">
+                                <i class="fas fa-table-tennis"></i>
+                                <span>Badminton</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="stats-grid" data-aos="fade-left">
-                <div class="stat-card">
-                    <div class="stat-number" data-target="99">0</div>
-                    <div class="stat-label">% Model Accuracy</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number" data-target="20">0</div>
-                    <div class="stat-label">K+ Calls Processed</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number" data-target="50">0</div>
-                    <div class="stat-label">K+ Cost Savings</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number" data-target="100">0</div>
-                    <div class="stat-label">K+ Documents Processed</div>
-                </div>
+        </div>
+        
+        <div class="stats-grid" data-aos="fade-up">
+            <div class="stat-card">
+                <div class="stat-number" data-target="99">0</div>
+                <div class="stat-label">% Model Accuracy</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" data-target="20">0</div>
+                <div class="stat-label">K+ Calls Processed</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" data-target="50">0</div>
+                <div class="stat-label">K+ Cost Savings</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" data-target="100">0</div>
+                <div class="stat-label">K+ Documents Processed</div>
             </div>
         </div>
     </section>
@@ -818,9 +1041,7 @@
                     <div class="role">AI/ML Engineer</div>
                     <div class="date">Feb 2025 - Present | Norwalk, CT</div>
                     <ul class="achievements">
-                        <li>Architected and deployed production-scale multi-agent AI system using Strands AI framework with three specialized agents (research, analysis,
-writer), autonomously processing 40,000+ monthly zipcode clearances at 90% accuracy—eliminating need for 25 FTE hires and generating
-$700,000 in annual savings</li>
+                        <li>Architected and deployed production-scale multi-agent AI system using Strands AI framework with three specialized agents (research, analysis, writer), autonomously processing 40,000+ monthly zipcode clearances at 90% accuracy—eliminating need for 25 FTE hires and generating $700,000 in annual savings</li>
                         <li>Pioneered agentic AI implementation using Google Agent Development Kit, reducing campaign execution costs by 20%</li>
                         <li>Architected end-to-end AI analytics platform processing 20,000 calls monthly, reducing operational repudiation rates by 30% YoY</li>
                         <li>Developed intelligent agent-assist chatbot using Dialogflow CX providing real-time Next Best Action recommendations</li>
@@ -863,6 +1084,96 @@ $700,000 in annual savings</li>
                         <li>Integrated ML into CAN testing, reducing test time by 30% and errors by 20% (saving $50,000 annually)</li>
                         <li>Diagnosed and optimized In-vehicle networks for seamless operation and compliance</li>
                     </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Section -->
+    <section id="featured">
+        <h2 class="section-title" data-aos="fade-up">Featured In</h2>
+        <div class="featured-container" data-aos="fade-up" data-aos-delay="100">
+            <div class="featured-card">
+                <span class="featured-badge">🎓 DREXEL UNIVERSITY</span>
+                <div class="featured-content">
+                    <h3 class="featured-title">Seeking Change in Career, Grad Student Finds Drexel</h3>
+                    <p class="featured-source">Drexel Engineering News & Events</p>
+                    <p class="featured-description">
+                        Featured in Drexel University's official publication highlighting my journey from Electronics and Communications Engineering to AI and Machine Learning. The article showcases my career transformation, academic achievements at Drexel (Magna Cum Laude), and my passion for leveraging artificial intelligence to solve real-world problems.
+                    </p>
+                    <a href="https://drexel.edu/engineering/news-events/news/archive/2024/February/seeking-change-in-career-grad-student-finds-drexel/" target="_blank" class="featured-link">
+                        Read Full Article <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Photo Gallery Section -->
+    <section id="gallery">
+        <h2 class="section-title" data-aos="fade-up">Life Beyond Code</h2>
+        <p style="text-align: center; color: var(--text-secondary); font-size: 1.1rem; margin-bottom: 3rem;" data-aos="fade-up">
+            When I'm not building AI solutions, you'll find me on the field or court
+        </p>
+        <div class="gallery-grid">
+            <div class="gallery-item" data-aos="zoom-in">
+                <div class="gallery-placeholder">
+                    <i class="fas fa-futbol"></i>
+                    <p>Football Action</p>
+                </div>
+                <div class="gallery-overlay">
+                    <div class="gallery-caption">⚽ Football</div>
+                    <div class="gallery-description">Playing my favorite sport</div>
+                </div>
+            </div>
+            <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100">
+                <div class="gallery-placeholder">
+                    <i class="fas fa-table-tennis"></i>
+                    <p>Badminton Match</p>
+                </div>
+                <div class="gallery-overlay">
+                    <div class="gallery-caption">🏸 Badminton</div>
+                    <div class="gallery-description">Court moments</div>
+                </div>
+            </div>
+            <div class="gallery-item" data-aos="zoom-in" data-aos-delay="200">
+                <div class="gallery-placeholder">
+                    <i class="fas fa-users"></i>
+                    <p>Team Spirit</p>
+                </div>
+                <div class="gallery-overlay">
+                    <div class="gallery-caption">👥 Team Moments</div>
+                    <div class="gallery-description">With friends and teammates</div>
+                </div>
+            </div>
+            <div class="gallery-item" data-aos="zoom-in" data-aos-delay="300">
+                <div class="gallery-placeholder">
+                    <i class="fas fa-graduation-cap"></i>
+                    <p>Academic Milestones</p>
+                </div>
+                <div class="gallery-overlay">
+                    <div class="gallery-caption">🎓 Drexel Journey</div>
+                    <div class="gallery-description">Campus memories</div>
+                </div>
+            </div>
+            <div class="gallery-item" data-aos="zoom-in" data-aos-delay="400">
+                <div class="gallery-placeholder">
+                    <i class="fas fa-code"></i>
+                    <p>Hackathons & Events</p>
+                </div>
+                <div class="gallery-overlay">
+                    <div class="gallery-caption">💻 Tech Events</div>
+                    <div class="gallery-description">Conferences and meetups</div>
+                </div>
+            </div>
+            <div class="gallery-item" data-aos="zoom-in" data-aos-delay="500">
+                <div class="gallery-placeholder">
+                    <i class="fas fa-plane"></i>
+                    <p>Travel & Adventures</p>
+                </div>
+                <div class="gallery-overlay">
+                    <div class="gallery-caption">✈️ Exploring</div>
+                    <div class="gallery-description">Travel moments</div>
                 </div>
             </div>
         </div>
@@ -1097,13 +1408,14 @@ $700,000 in annual savings</li>
         // Hide scroll indicator on scroll
         window.addEventListener('scroll', () => {
             const scrollIndicator = document.querySelector('.scroll-indicator');
-            if (window.scrollY > 100) {
-                scrollIndicator.style.opacity = '0';
-            } else {
-                scrollIndicator.style.opacity = '1';
+            if (scrollIndicator) {
+                if (window.scrollY > 100) {
+                    scrollIndicator.style.opacity = '0';
+                } else {
+                    scrollIndicator.style.opacity = '1';
+                }
             }
         });
     </script>
 </body>
-
 </html>
